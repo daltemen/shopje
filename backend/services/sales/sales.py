@@ -1,10 +1,11 @@
 from typing import List
 
+from flask_sqlalchemy import SQLAlchemy
+
 
 class Sales:
-
-    def __init__(self):
-        pass
+    def __init__(self, db: SQLAlchemy):
+        self.db = db
 
     def create(self, sales_fields: dict):
         pass
@@ -17,9 +18,8 @@ class Sales:
 
 
 class ProductsSales:
-
-    def __init__(self):
-        pass
+    def __init__(self, db: SQLAlchemy):
+        self.db = db
 
     def create(self, shop_id: int, product_ids: List[int]):
         pass

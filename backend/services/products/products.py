@@ -1,8 +1,9 @@
+from flask_sqlalchemy import SQLAlchemy
 
-class Product:
 
-    def __init__(self):
-        pass
+class Products:
+    def __init__(self, db: SQLAlchemy):
+        self.db = db
 
     def create(self, product_fields: dict):
         pass
