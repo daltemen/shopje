@@ -15,23 +15,28 @@ _BASE_API_PATH = "/api/v1"
 
 @app.route("/health")
 def health():
-    return "Hello World!"
+    return "Hi Peiky!"
 
 
-@app.route(f"{_BASE_API_PATH}/products/<int:shop_id>")
+@app.route(f"{_BASE_API_PATH}/products/shop/<int:shop_id>", methods=["GET", "POST"])
 def products(shop_id):
-    all_products = _PRODUCTS.get_all(int(shop_id))
+    all_products = {}
+    shop_id = shop_id
+    if request.method == "GET":
+        all_products = _PRODUCTS.get_all(shop_id)
+    if request.method == "POST":
+        all_products = _PRODUCTS.create(request.get_json())
     return jsonify(all_products)
 
 
-@app.route(f"{_BASE_API_PATH}/products/<int:product_id>", methods=["GET", "POST", "PUT", "DELETE"])
+@app.route(
+    f"{_BASE_API_PATH}/products/<int:product_id>", methods=["GET", "PUT", "DELETE"]
+)
 def product(product_id):
     product_shop = {}
     product_id = int(product_id)
     if request.method == "GET":
         product_shop = _PRODUCTS.get(product_id)
-    if request.method == "POST":
-        product_shop = _PRODUCTS.create(request.get_json())
     if request.method == "PUT":
         product_shop = _PRODUCTS.update(product_id, request.get_json())
     if request.method == "DELETE":
@@ -39,7 +44,7 @@ def product(product_id):
     return jsonify(product_shop)
 
 
-@app.route(f"{_BASE_API_PATH}/sales/<int:shop_id>")
+@app.route(f"{_BASE_API_PATH}/sales/shop/<int:shop_id>")
 def sales(shop_id):
     all_sales = _SALES.get_all(int(shop_id))
     return jsonify(all_sales)
