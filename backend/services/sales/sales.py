@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 
-from backend.services.models.models import Sale, ProductsSale
-from backend.services.products import Products
+from services.models import Sale, ProductsSale
+from services.products import Products
 
 
 class Sales:

@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from backend.services.models.models import Product
+from services.models import Product
 
 
 class Products:

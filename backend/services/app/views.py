@@ -1,11 +1,11 @@
 from flask import request, jsonify
 
-from backend.services.app import app
+from services.app import app
 
-from backend.services.models.models import db
-from backend.services.products import Products
-from backend.services.sales import Sales
-from backend.services.shops import Shops
+from services.models.models import db
+from services.products import Products
+from services.sales import Sales
+from services.shops import Shops
 
 _PRODUCTS = Products(db)
 _SALES = Sales(db, _PRODUCTS)

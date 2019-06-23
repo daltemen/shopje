@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 
-from backend.services.models.models import Shop
+from services.models import Shop
 
 
 class Shops:
