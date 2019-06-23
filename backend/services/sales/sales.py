@@ -10,7 +10,7 @@ class Sales:
     def create(self, sales_fields: dict):
         pass
 
-    def get(self, shop_id: int, sales_id: int):
+    def get(self, sales_id: int):
         pass
 
     def get_all(self, shop_id: int):
