@@ -5,8 +5,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import DashBoard from './components/DashBoard'
-import Products from './components/Products'
-import Sales from './components/Sales'
 import NotFound from './components/NotFound'
 
 const routing = (
@@ -14,8 +12,6 @@ const routing = (
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/dashboard/:shopId" component={DashBoard} />
-            <Route path="/products/:shopId" component={Products} />
-            <Route path="/sales/:shopId" component={Sales} />
             <Route component={NotFound} />
         </Switch>
     </Router>

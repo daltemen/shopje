@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
-import NavBar from './NavBar';
+import ProductsTable from './ProductsTable';
 
 class Products extends Component {
     render() {
-        const { params } = this.props.match;
-        console.log(params);
+        const { shopId } = this.props.shopId;
+        console.log(shopId);
         return (
             <div>
-                <NavBar/>
-                <h1>Products</h1>
-                <p>{params.shopId}</p>
+                <h2 className="AppCenter">Products</h2>
+                <p>{shopId}</p>
+                <div className="AppCenter">
+                    <ProductsTable/>
+                </div>
             </div>
         );
     };
