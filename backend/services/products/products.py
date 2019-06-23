@@ -30,6 +30,11 @@ class Products:
         self.db.session.commit()
         return {"ok": True}
 
+    def decrease(self, id_product: int, quantity: int):
+        product = Product.query.get(id_product)
+        product.quantity -= quantity
+        self.db.session.commit()
+
     @staticmethod
     def to_dict(product: Product) -> dict:
         return {

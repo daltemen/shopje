@@ -1,3 +1,3 @@
-from .sales import Sales, ProductsSales
+from .sales import Sales
 
 __all__ = ["Sales"]

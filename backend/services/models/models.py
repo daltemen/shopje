@@ -10,9 +10,6 @@ class Shop(db.Model):
     name = db.Column(db.String(80), unique=True, nullable=False)
     products = db.relationship("Product", backref="shop_products", lazy=True)
     sales = db.relationship("Sale", backref="shop_sales", lazy=True)
-    products_detail_sales = db.relationship(
-        "ProductsSale", backref="shop_products_sale", lazy=True
-    )
 
     def __repr__(self):
         return "<Shop %r>" % self.name
@@ -38,6 +35,9 @@ class Sale(db.Model):
     phone = db.Column(db.String(120), unique=True, nullable=False)
     price = db.Column(db.Integer)
     shop_id = db.Column(db.Integer, db.ForeignKey("shop.id"), nullable=False)
+    products_detail_sales = db.relationship(
+        "ProductsSale", backref="sale_products_sale", lazy=True
+    )
 
     def __repr__(self):
         return "<Sale %r>" % self.id
@@ -45,7 +45,8 @@ class Sale(db.Model):
 
 class ProductsSale(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shop.id"), nullable=False)
+    quantity = db.Column(db.Integer)
+    sale_id = db.Column(db.Integer, db.ForeignKey("sale.id"), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey("product.id"), nullable=False)
 
     def __repr__(self):
