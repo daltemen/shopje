@@ -38,3 +38,6 @@ docker-compose run --no-deps backend sh -euc '
     python -m pytest backend/backend/services/tests -v --disable-pytest-warnings
 '
 ```
+
+## E-R Backend Diagram
+![ER](../master/img/er.png)
