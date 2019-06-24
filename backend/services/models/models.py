@@ -3,7 +3,7 @@ from services.app import db
 
 class Shop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True, nullable=False)
+    name = db.Column(db.String(80), nullable=False)
     products = db.relationship("Product", backref="shop_products", lazy=True)
     sales = db.relationship("Sale", backref="shop_sales", lazy=True)
 
@@ -13,7 +13,7 @@ class Shop(db.Model):
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True, nullable=False)
+    name = db.Column(db.String(80), nullable=False)
     price = db.Column(db.Integer)
     quantity = db.Column(db.Integer)
     shop_id = db.Column(db.Integer, db.ForeignKey("shop.id"), nullable=False)
@@ -27,8 +27,8 @@ class Product(db.Model):
 
 class Sale(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    client = db.Column(db.String(120), unique=True, nullable=False)
-    phone = db.Column(db.String(120), unique=True, nullable=False)
+    client = db.Column(db.String(120), nullable=False)
+    phone = db.Column(db.String(120), nullable=False)
     price = db.Column(db.Integer)
     shop_id = db.Column(db.Integer, db.ForeignKey("shop.id"), nullable=False)
     products_detail_sales = db.relationship(

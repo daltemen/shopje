@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import ProductsTable from './ProductsTable';
+import SalesTable from "./SalesTable";
+import NewSales from "./NewSales";
 
 class Sales extends Component {
     shopId;
@@ -11,7 +12,11 @@ class Sales extends Component {
                 <h2 className="AppCenter">Sales</h2>
                 <p>{shopId}</p>
                 <div className="AppCenter">
-                    <ProductsTable shopId={shopId}/>
+                    <NewSales shopId={shopId}/>
+                </div>
+                <br/>
+                <div className="AppCenter">
+                    <SalesTable shopId={shopId}/>
                 </div>
             </div>
         );
