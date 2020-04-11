@@ -1,5 +1,5 @@
 # shopje
-quickly shop with python, javascript and elixir.
+quickly shop with python, javascript
 
 For consume API:
 
